@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CK Tech Innovation | Zambia's Premier Tech Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --purple: #7D53DE;
+            --dark-blue: #0A1F44;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #6c757d;
+            --white: #ffffff;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--dark-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--light-gray);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .top-bar-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 15px;
+            transition: var(--transition);
+        }
+
+        .top-bar-links a:hover {
+            color: var(--purple);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .logo-text span:nth-child(1),
+        .logo-text span:nth-child(3) {
+            color: var(--purple);
+        }
+
+        .logo-text span:nth-child(2) {
+            color: var(--dark-blue);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--purple);
+            border: none;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-icon {
+            margin-left: 20px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-icon i {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            transition: var(--transition);
+        }
+
+        .nav-icon:hover i {
+            color: var(--purple);
+        }
+
+        .badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .category-nav {
+            background-color: var(--dark-blue);
+            padding: 10px 0;
+        }
+
+        .category-links {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .category-links li {
+            margin: 0 15px;
+        }
+
+        .category-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .category-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #1a3a7a 100%);
+            color: var(--white);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--purple);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #6a42c9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            margin-left: 10px;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--dark-blue);
+        }
+
+        /* Featured Categories */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 4px;
+            background-color: var(--purple);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(125, 83, 222, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--purple);
+            font-size: 2rem;
+        }
+
+        .category-card h3 {
+            margin-bottom: 10px;
+            color: var(--dark-blue);
+        }
+
+        /* Featured Products */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--danger);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin-right: 10px;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: var(--dark-gray);
+        }
+
+        .product-rating {
+            color: var(--warning);
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            background: var(--dark-blue);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+
+        .add-to-cart:hover {
+            background: var(--purple);
+        }
+
+        /* Payment Methods Section */
+        .payment-methods {
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .payment-logos {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .payment-logo {
+            background: white;
+            padding: 15px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .payment-logo img {
+            height: 30px;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            background: var(--light-gray);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--purple);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light-gray);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin: 0 15px;
+            text-align: center;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--purple);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--purple) 0%, #5d3aa8 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: var(--dark-blue);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: #1a3a7a;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: var(--white);
+            padding: 70px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--purple);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--purple);
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--purple);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Shopping Cart Sidebar */
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1100;
+            transition: var(--transition);
+            overflow-y: auto;
+        }
+
+        .cart-sidebar.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .cart-header h3 {
+            margin: 0;
+        }
+
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+
+        .cart-items {
+            padding: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .cart-item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-item-details {
+            flex: 1;
+        }
+
+        .cart-item-details h4 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .cart-item-price {
+            color: var(--purple);
+            font-weight: 600;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background: var(--medium-gray);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .quantity-input {
+            width: 40px;
+            text-align: center;
+            margin: 0 10px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            padding: 5px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--danger);
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .cart-total {
+            padding: 20px;
+            border-top: 1px solid var(--medium-gray);
+        }
+
+        .cart-total-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+         }
+
+        .cart-total-item.total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-top: 1px solid var(--medium-gray);
+            padding-top: 10px;
+            margin-top: 10px;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            background: var(--purple);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: var(--transition);
+        }
+
+        .checkout-btn:hover {
+            background: #6a42c9;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1050;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Mobile Money Payment Modal */
+        .payment-modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            z-index: 1200;
+            display: none;
+        }
+
+        .payment-modal.active {
+            display: block;
+        }
+
+        .payment-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--medium-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .payment-header h3 {
+            margin: 0;
+        }
+
+        .close-payment {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+
+        .payment-body {
+            padding: 20px;
+        }
+
+        .payment-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-option {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            border: 2px solid var(--medium-gray);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-option.active {
+            border-color: var(--purple);
+            background: rgba(125, 83, 222, 0.05);
+        }
+
+        .payment-option img {
+            height: 40px;
+            margin-bottom: 10px;
+        }
+
+        .payment-form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .payment-footer {
+            padding: 20px;
+            border-top: 1px solid var(--medium-gray);
+            text-align: right;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                margin-bottom: 40px;
+            }
+            
+            .search-bar {
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .category-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .top-bar-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .top-bar-links {
+                margin-top: 5px;
+            }
+            
+            .nav-icons {
+                display: none;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+            
+            .payment-options {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-text">
+                    <i class="fas fa-phone"></i> Call us: +260 97 123 4567 | <i class="fas fa-envelope"></i> info@cktechinnovation.co.zm
+                </div>
+                <div class="top-bar-links">
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> Store Locator</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+                    <a href="#"><i class="fas fa-user"></i> My Account</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-text">
+                        <span>CK</span>
+                        <span>Tech</span>
+                        <span>Innovation</span>
+                    </div>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="nav-icons">
+                    <div class="nav-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="nav-icon">
+                        <i class="fas fa-heart"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="nav-icon" id="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge">2</span>
+                    </div>
+                </div>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+        
+        <div class="category-nav">
+            <div class="container">
+                <ul class="category-links">
+                    <li><a href="#">Smartphones</a></li>
+                    <li><a href="#">Laptops & Computers</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Networking</a></li>
+                    <li><a href="#">Repair Services</a></li>
+                    <li><a href="#">Special Offers</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Zambia's Premier Tech Destination</h1>
+                    <p>Discover the latest gadgets, accessories, and tech solutions with convenient Airtel & MTN Mobile Money payments.</p>
+                    <a href="#featured" class="btn">Shop Now</a>
+                    <a href="#services" class="btn btn-outline">Our Services</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Latest Tech Gadgets">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Shop By Category</h2>
+                <p>Find exactly what you need from our wide range of tech products</p>
+            </div>
+            <div class="categories">
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Smartphones</h3>
+                    <p>Latest models from top brands</p>
+                    <a href="#" class="btn" style="margin-top: 15px; padding: 8px 20px;">Browse</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3>Laptops & Computers</h3>
+                    <p>Powerful devices for work and play</p>
+                    <a href="#" class="btn" style="margin-top: 15px; padding: 8px 20px;">Browse</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-headphones"></i>
+                    </div>
+                    <h3>Accessories</h3>
+                    <p>Cases, chargers, headphones & more</p>
+                    <a href="#" class="btn" style="margin-top: 15px; padding: 8px 20px;">Browse</a>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-wifi"></i>
+                    </div>
+                    <h3>Networking</h3>
+                    <p>Routers, modems & internet solutions</p>
+                    <a href="#" class="btn" style="margin-top: 15px; padding: 8px 20px;">Browse</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="featured" class="section" style="background-color: var(--light-gray);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Check out our most popular tech items</p>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Samsung Galaxy Phone">
+                        <div class="product-badge">Sale</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Samsung Galaxy S23 Ultra</h3>
+                        <div class="product-price">
+                            <span class="current-price">ZMW 8,999</span>
+                            <span class="original-price">ZMW 9,999</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(24)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="MacBook Pro">
+                    </div>
+                    <div class="product-info">
+                        <h3>Apple MacBook Pro 14"</h3>
+                        <div class="product-price">
+                            <span class="current-price">ZMW 25,999</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(18)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600003263720-95b45a4035d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Wireless Headphones">
+                        <div class="product-badge">New</div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sony WH-1000XM4 Headphones</h3>
+                        <div class="product-price">
+                            <span class="current-price">ZMW 2,499</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(32)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Smart Watch">
+                    </div>
+                    <div class="product-info">
+                        <h3>Apple Watch Series 8</h3>
+                        <div class="product-price">
+                            <span class="current-price">ZMW 4,599</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(15)</span>
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="section payment-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Easy Payment Options</h2>
+                <p>We accept all major payment methods including mobile money</p>
+            </div>
+            <div class="payment-logos">
+                <div class="payment-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Airtel_Money_logo.svg/1200px-Airtel_Money_logo.svg.png" alt="Airtel Money">
+                    <span>Airtel Money</span>
+                </div>
+                <div class="payment-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/MTN_Mobile_Money_logo.svg/2560px-MTN_Mobile_Money_logo.svg.png" alt="MTN Mobile Money">
+                    <span>MTN Mobile Money</span>
+                </div>
+                <div class="payment-logo">
+                    <i class="fab fa-cc-visa" style="font-size: 2rem; color: #1a1f71;"></i>
+                    <span>Visa</span>
+                </div>
+                <div class="payment-logo">
+                    <i class="fab fa-cc-mastercard" style="font-size: 2rem; color: #eb001b;"></i>
+                    <span>Mastercard</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Beyond products, we offer comprehensive tech solutions</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Device Repair</h3>
+                    <p>Expert repair services for smartphones, tablets, laptops, and computers with warranty on all repairs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Network Setup</h3>
+                    <p>Professional Wi-Fi installations for homes and businesses with optimal coverage and security.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>Tech Support</h3>
+                    <p>24/7 customer support and technical assistance for all your technology needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+                <p>Read reviews from our satisfied customers across Zambia</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-item">
+                    <div class="testimonial-text">
+                        I bought my laptop from CK Tech Innovation and paid with Airtel Money. The process was seamless, and the product arrived the next day. Highly recommended!
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client">
+                        </div>
+                        <div class="author-info">
+                            <h4>John Banda</h4>
+                            <p>Lusaka</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get updates on the latest products, exclusive deals, and tech tips delivered to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+      <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CK Tech Innovation</h3>
+                    <p>Zambia's leading technology retailer offering the latest gadgets, accessories, and tech solutions with convenient mobile money payments.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Cairo Road, Lusaka, Zambia</p>
+                    <p><i class="fas fa-phone"></i> +260 97 123 4567</p>
+                    <p><i class="fas fa-envelope"></i> info@cktechinnovation.co.zm</p>
+                    <p><i class="fas fa-clock"></i> Mon-Sat: 8:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 CK Tech Innovation. All Rights Reserved. | Designed for Zambia</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart (2)</h3>
+            <button class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items">
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Samsung Galaxy Phone">
+                </div>
+                <div class="cart-item-details">
+                    <h4>Samsung Galaxy S23 Ultra</h4>
+                    <div class="cart-item-price">ZMW 8,999</div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn">-</button>
+                        <input type="text" class="quantity-input" value="1">
+                        <button class="quantity-btn">+</button>
+                        <button class="remove-item"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-item">
+                <div class="cart-item-image">
+                    <img src="https://images.unsplash.com/photo-1600003263720-95b45a4035d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Wireless Headphones">
+                </div>
+                <div class="cart-item-details">
+                    <h4>Sony WH-1000XM4 Headphones</h4>
+                    <div class="cart-item-price">ZMW 2,499</div>
+                    <div class="cart-item-quantity">
+                        <button class="quantity-btn">-</button>
+                        <input type="text" class="quantity-input" value="1">
+                        <button class="quantity-btn">+</button>
+                        <button class="remove-item"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-total">
+            <div class="cart-total-item">
+                <span>Subtotal:</span>
+                <span>ZMW 11,498</span>
+            </div>
+            <div class="cart-total-item">
+                <span>Shipping:</span>
+                <span>ZMW 50</span>
+            </div>
+            <div class="cart-total-item total">
+                <span>Total:</span>
+                <span>ZMW 11,548</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Mobile Money Payment Modal -->
+    <div class="payment-modal">
+        <div class="payment-header">
+            <h3>Complete Your Purchase</h3>
+            <button class="close-payment">&times;</button>
+        </div>
+        <div class="payment-body">
+            <div class="payment-options">
+                <div class="payment-option active" data-payment="airtel">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Airtel_Money_logo.svg/1200px-Airtel_Money_logo.svg.png" alt="Airtel Money">
+                    <div>Airtel Money</div>
+                </div>
+                <div class="payment-option" data-payment="mtn">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/MTN_Mobile_Money_logo.svg/2560px-MTN_Mobile_Money_logo.svg.png" alt="MTN Mobile Money">
+                    <div>MTN Mobile Money</div>
+                </div>
+            </div>
+            
+            <div class="payment-form">
+                <div class="form-group">
+                    <label for="phone">Mobile Number</label>
+                    <input type="tel" id="phone" class="form-control" placeholder="Enter your mobile number">
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount</label>
+                    <input type="text" id="amount" class="form-control" value="ZMW 11,548" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="pin">PIN</label>
+                    <input type="password" id="pin" class="form-control" placeholder="Enter your mobile money PIN">
+                </div>
+            </div>
+        </div>
+        <div class="payment-footer">
+            <button class="btn">Pay Now</button>
+        </div>
+    </div>
+
+    <script>
+        // Shopping Cart Functionality
+        const cartIcon = document.getElementById('cart-icon');
+        const cartSidebar = document.querySelector('.cart-sidebar');
+        const overlay = document.querySelector('.overlay');
+        const closeCart = document.querySelector('.close-cart');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const paymentModal = document.querySelector('.payment-modal');
+        const closePayment = document.querySelector('.close-payment');
+        const paymentOptions = document.querySelectorAll('.payment-option');
+
+        // Open cart sidebar
+        cartIcon.addEventListener('click', () => {
+            cartSidebar.classList.add('active');
+            overlay.classList.add('active');
+        });
+
+        // Close cart sidebar
+        closeCart.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Open payment modal
+        checkoutBtn.addEventListener('click', () => {
+            paymentModal.classList.add('active');
+            overlay.classList.add('active');
+            cartSidebar.classList.remove('active');
+        });
+
+        // Close payment modal
+        closePayment.addEventListener('click', () => {
+            paymentModal.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Close modals when clicking overlay
+        overlay.addEventListener('click', () => {
+            cartSidebar.classList.remove('active');
+            paymentModal.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        // Payment option selection
+        paymentOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                paymentOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const badge = document.querySelector('#cart-icon .badge');
+                let currentCount = parseInt(badge.textContent);
+                badge.textContent = currentCount + 1;
+                
+                // Show confirmation
+                alert('Product added to cart!');
+            });
+        });
+
+        // Quantity adjustment in cart
+        const quantityButtons = document.querySelectorAll('.quantity-btn');
+        quantityButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const input = button.parentElement.querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                
+                if (button.textContent === '+') {
+                    input.value = value + 1;
+                } else if (button.textContent === '-' && value > 1) {
+                    input.value = value - 1;
+                }
+                
+                updateCartTotal();
+            });
+        });
+
+        // Remove item from cart
+        const removeButtons = document.querySelectorAll('.remove-item');
+        removeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const cartItem = button.closest('.cart-item');
+                cartItem.remove();
+                
+                const badge = document.querySelector('#cart-icon .badge');
+                let currentCount = parseInt(badge.textContent);
+                badge.textContent = currentCount - 1;
+                
+                updateCartTotal();
+            });
+        });
+
+        // Update cart total
+        function updateCartTotal() {
+            // This would normally calculate based on all items in cart
+            // For demo purposes, we'll keep it simple
+            console.log('Cart updated');
+        }
+
+        // Mobile menu toggle (for smaller screens)
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const categoryLinks = document.querySelector('.category-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            categoryLinks.style.display = categoryLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+    </script>
+</body>
+      </html>
